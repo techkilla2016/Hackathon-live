@@ -29,6 +29,11 @@ const page = () => {
                         To access the picture in the drive
                     </p>
                 </div>
+
+                <div className='d-flex justify-content-center py-4'>
+                    <Link href='/' className='btn btn-success start-btn'>go to Home</Link>
+                </div>
+
             </Container>
 
         </div>
