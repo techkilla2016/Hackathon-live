@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
-
+import { FaHome } from 'react-icons/fa'
 const page = () => {
 
     return (
@@ -30,10 +30,12 @@ const page = () => {
                     </p>
                 </div>
 
-                <div className='d-flex justify-content-center py-4'>
+                {/* <div className='d-flex justify-content-center py-4'>
                     <Link href='/' className='btn btn-success start-btn px-5'>Home</Link>
-                </div>
-
+                </div> */}
+                <Link href='/' className="back-home">
+                    <FaHome />
+                </Link>
             </Container>
 
         </div>
