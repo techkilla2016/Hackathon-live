@@ -31,7 +31,7 @@ const page = () => {
                 </div>
 
                 <div className='d-flex justify-content-center py-4'>
-                    <Link href='/' className='btn btn-success start-btn'>go to Home</Link>
+                    <Link href='/' className='btn btn-success start-btn px-5'>Home</Link>
                 </div>
 
             </Container>
