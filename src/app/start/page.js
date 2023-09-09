@@ -94,7 +94,7 @@ const Home = () => {
 
                             </Row>
                             <div className="d-flex py-5">
-                                <button className='btn btn-success fs-2 start-btn' onClick={handleGenrate}>Genrate Image</button>
+                                <button className='btn btn-success fs-2 start-btn' onClick={handleGenrate}>Generate Image</button>
                             </div>
                         </Container>
                     </div>
