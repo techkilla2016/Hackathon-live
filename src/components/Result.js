@@ -19,7 +19,7 @@ const Result = ({ result, setResult }) => {
                         <div className="finalImag">
                             <img src={result} alt="" />
                         </div>
-                        <div className="justify-content-center">
+                        <div className="d-flex justify-content-center">
                             <div>
                                 <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
                             </div>
