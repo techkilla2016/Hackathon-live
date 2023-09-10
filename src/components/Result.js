@@ -19,14 +19,14 @@ const Result = ({ result, setResult }) => {
                         <div className="finalImag">
                             <img src={result} alt="" />
                         </div>
-                        <Row className="justify-content-between">
-                            <Col lg={5} sm={6} className='d-flex py-2'>
-                                <button className='btn btn-warning wt-border fs-2 start-btn' onClick={() => setResult('')}>Re-generate</button>
-                            </Col>
-                            <Col lg={5} sm={6} className='d-flex  py-2'>
-                                <a href={result} onClick={handleRedirect} download="Image" className='btn wt-border btn-warning fs-2 start-btn' >Save</a>
-                            </Col>
-                        </Row>
+                        <div className="justify-content-center">
+                            <div>
+                                <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
+                            </div>
+                            <div>
+                                <a href={result} onClick={handleRedirect} download="Image" className='btn wt-border btn-warning start-btn' >Save</a>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
 
