@@ -15,11 +15,11 @@ const Result = ({ result, setResult }) => {
             <h1 className='text-center'>Here is Your Photograph</h1>
             <Container className=''>
                 <Row className='justify-content-center align-items-center'>
-                    <Col lg={8} md={6} sm={12} xs={12}>
+                    <Col lg={10} md={12} sm={12} xs={12}>
                         <div className="finalImag">
                             <img src={result} alt="" />
                         </div>
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex justify-content-center py-4">
                             <div>
                                 <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
                             </div>
