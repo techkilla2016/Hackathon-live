@@ -1,13 +1,17 @@
 "use client"
+import { v4 as uuid } from 'uuid';
+
 import Link from 'next/link'
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useRouter } from 'next/navigation'
 const Result = ({ result, setResult }) => {
+    const unique_id = uuid();
+    const small_id = unique_id.slice(0, 10)
     const router = useRouter()
     const handleRedirect = () => {
         setTimeout(() => {
-            router.push('/result')
+            router.push(`result/${small_id}`);
         }, 1000)
     }
     return (
@@ -24,7 +28,7 @@ const Result = ({ result, setResult }) => {
                                 <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
                             </div>
                             <div>
-                                <a href={result} onClick={handleRedirect} download="Image" className='btn wt-border btn-warning start-btn' >Save</a>
+                                <a href={result} onClick={handleRedirect} download={small_id} className='btn wt-border btn-warning start-btn' >Save</a>
                             </div>
                         </div>
                     </Col>

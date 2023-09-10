@@ -1,10 +1,10 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import Link from 'next/link'
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import { FaHome } from 'react-icons/fa'
-const page = () => {
-
+const page = ({ params }) => {
     return (
         <div className="main">
             <Container>
@@ -20,7 +20,7 @@ const page = () => {
                 </Row>
                 <div className='py-5 d-flex justify-content-center'>
                     <div className="code">
-
+                        {params.id}
                     </div>
                 </div>
 
