@@ -50,7 +50,8 @@ const Home = () => {
         setIsLoad(true)
         try {
             // console.log(imgFile)
-            axios.post('https://1a53-103-17-110-126.ngrok-free.app/rec', {
+            // axios.post('https://1a53-103-17-110-126.ngrok-free.app/rec', {
+            axios.post('https://13.40.23.230:5000/rec', {
                 image: imgFile.split(',')[1],
                 choice: select
             }).then(res => {
