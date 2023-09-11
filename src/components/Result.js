@@ -28,7 +28,7 @@ const Result = ({ result, setResult }) => {
                                 <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
                             </div>
                             <div>
-                                <a href={result} onClick={handleRedirect} download={`techkilla-${small_id}`} className='btn wt-border btn-warning start-btn' >Save</a>
+                                <a href={result} onClick={handleRedirect} target="_blank" rel="noopener noreferrer" download={`techkilla-${small_id}`} className='btn wt-border btn-warning start-btn'>Save</a>
                             </div>
                         </div>
                     </Col>
