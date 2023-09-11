@@ -1,6 +1,5 @@
 "use client"
 import { v4 as uuid } from 'uuid';
-
 import Link from 'next/link'
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -10,34 +9,39 @@ const Result = ({ result, setResult }) => {
     const small_id = unique_id.slice(0, 5)
     const router = useRouter()
 
-    // const handleRedirect = (code) => {
-
-    //     setTimeout(() => {
-    //         router.push(`result/techkilla-${small_id}_m`);
-    //     }, 1000)
-    // }
-
     const handleRedirect = () => {
-        const base64Image = result;
-        const blob = new Blob([base64Image], { type: 'image/jpeg' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${small_id}.webp`;
-        const clickEvent = new MouseEvent('click', {
-            view: window,
-            bubbles: true,
-            cancelable: true,
-        });
-        a.dispatchEvent(clickEvent);
-
-        // Cleanup by revoking the Blob URL
-        window.URL.revokeObjectURL(url);
-
         setTimeout(() => {
             router.push(`result/${small_id}`);
         }, 1000)
-    };
+    }
+
+    // const handleRedirect = () => {
+    //     const base64Image = result;
+
+    //     // Detect the image format (MIME type)
+    //     const format = imageType(Buffer.from(base64Image, 'base64'));
+
+    //     if (format) {
+    //         const blob = new Blob([base64Image], { type: format.mime });
+    //         const url = window.URL.createObjectURL(blob);
+    //         const a = document.createElement('a');
+    //         a.href = url;
+    //         a.download = `${small_id}.${format.ext}`; // Specify the file extension based on detected format
+    //         const clickEvent = new MouseEvent('click', {
+    //             view: window,
+    //             bubbles: true,
+    //             cancelable: true,
+    //         });
+    //         a.dispatchEvent(clickEvent);
+    //         window.URL.revokeObjectURL(url);
+    //         setTimeout(() => {
+    //             router.push(`result/${small_id}`);
+    //         }, 1000);
+    //     } else {
+    //         // Unable to detect image format
+    //         console.error('Unable to detect image format.');
+    //     }
+    // };
 
     return (
         <div className='center_main py-5 '>
