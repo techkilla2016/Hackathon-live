@@ -6,7 +6,7 @@ import data from '@/image-data'
 import Capture from '@/components'
 import Result from '@/components/Result'
 const Home = () => {
-const [isUpload, setIsUpload] = useState(false)
+    const [isUpload, setIsUpload] = useState(false)
     const [isLoad, setIsLoad] = useState(false)
     const [imgFile, setImgFile] = useState('')
     const [files, setFiles] = useState()
