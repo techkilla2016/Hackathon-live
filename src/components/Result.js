@@ -57,8 +57,8 @@ const Result = ({ result, setResult }) => {
                                 <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
                             </div>
                             <div>
-                                <button onClick={handleRedirect} className='btn wt-border btn-warning start-btn'>download</button>
-                                {/* <a href={result} onClick={handleRedirect} target="_blank" rel="noopener noreferrer" download={`tk-${small_id}_m`} className='btn wt-border btn-warning start-btn'>Save</a> */}
+                                {/* <button onClick={handleRedirect} className='btn wt-border btn-warning start-btn'>download</button> */}
+                                <a href={result} onClick={handleRedirect} target="_blank" rel="noopener noreferrer" download={`tk-${small_id}_m`} className='btn wt-border btn-warning start-btn'>Save</a>
                             </div>
                         </div>
                     </Col>
