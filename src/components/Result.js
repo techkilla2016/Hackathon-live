@@ -9,10 +9,10 @@ const Result = ({ result, setResult }) => {
     const unique_id = uuid();
     const small_id = unique_id.slice(0, 8)
     const router = useRouter()
-    const handleRedirect = () => {
+    const handleRedirect = (code) => {
 
         setTimeout(() => {
-            router.push(`result/${small_id}`);
+            router.push(`result/techkilla-${small_id}_m`);
         }, 1000)
     }
     return (
@@ -29,7 +29,7 @@ const Result = ({ result, setResult }) => {
                                 <button className='btn btn-warning wt-border start-btn' onClick={() => setResult('')}>Re-generate</button>
                             </div>
                             <div>
-                                <a href={result} onClick={handleRedirect} target="_blank" rel="noopener noreferrer" download={`techkilla-${small_id}_image`} className='btn wt-border btn-warning start-btn'>Save</a>
+                                <a href={result} onClick={handleRedirect} target="_blank" rel="noopener noreferrer" download={`techkilla-${small_id}_m`} className='btn wt-border btn-warning start-btn'>Save</a>
                             </div>
                         </div>
                     </Col>
