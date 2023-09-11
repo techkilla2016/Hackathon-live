@@ -7,7 +7,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { useRouter } from 'next/navigation'
 const Result = ({ result, setResult }) => {
     const unique_id = uuid();
-    const small_id = unique_id.slice(0, 8)
+    const small_id = unique_id.slice(0, 5)
     const router = useRouter()
     // const handleRedirect = (code) => {
 
