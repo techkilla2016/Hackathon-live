@@ -1,17 +1,45 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 import data from '@/image-data'
 import Capture from '@/components'
 import Result from '@/components/Result'
+import { useCookies } from 'react-cookie'
+import { useRouter } from 'next/navigation'
 const Home = () => {
     const [isUpload, setIsUpload] = useState(false)
-    const [isLoad, setIsLoad] = useState(false)
     const [imgFile, setImgFile] = useState('')
     const [files, setFiles] = useState()
     const [select, setSelect] = useState()
     const [result, setResult] = useState('')
+    const [isLoad, setIsLoad] = useState(true)
+    const [cookies] = useCookies(['auth'])
+    const router = useRouter()
+    const domain = 'https://photo-ai-auth.vercel.app'
+    useEffect(() => {
+        const getVerify = async () => {
+            try {
+                const res = await axios.get(`${domain}/verify`, {
+                    headers: {
+                        auth: cookies?.auth
+                    }
+                })
+            } catch (error) {
+                router.push(`/login`);
+                console.log(error)
+            }
+        }
+        setTimeout(() => {
+            if (!cookies?.auth) {
+                router.push('/login')
+            } else {
+                getVerify()
+                setIsLoad(false)
+            }
+        }, 1000)
+    }, [cookies])
+
     // select image from computer 
     const changeFile = event => {
         const file = event.target.files[0]
@@ -30,7 +58,6 @@ const Home = () => {
 
     // select Template 
     const handleStart = () => {
-        console.log(imgFile.split(',')[0])
         if (imgFile) {
             setIsUpload(true)
         }

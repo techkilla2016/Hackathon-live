@@ -1,9 +1,22 @@
 "use client"
+import Loader from '@/components/Loader'
 import Link from 'next/link'
-import React from 'react'
+import { useRouter } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
+import { useCookies } from 'react-cookie'
 
-const page = () => {
+const Page = () => {
+  const [isLoad, setIsLoad] = useState(true)
+  const [cookies] = useCookies(['auth'])
+  const router = useRouter()
+  useEffect(() => {
+    if (!cookies?.auth) {
+      router.push('/login')
+    } else {
+      setIsLoad(false)
+    }
+  }, [cookies])
 
   const data = [
     {
@@ -39,36 +52,39 @@ const page = () => {
       img: '/assets/8.png',
     },
   ]
+
   return (
     <div className="main">
-      <Container>
-        <Row className='py-5'>
-          <Col xxl={6} xl={6} lg={12} md={12} sm={12} xs={12}>
-            <img src="/assets/logo.png" alt="" />
-          </Col>
-          <Col xxl={6} xl={6} lg={12} md={12} sm={12} xs={12}>
-            <img src="/assets/logo-01.png" alt="" />
-          </Col>
-        </Row>
 
-        <Row>
-          {
-            data?.map((item, keys) => {
-              return <Col xxl={3} xl={3} lg={3} md={3} sm={6} xs={12} key={keys} className='py-4'>
-                <Card>
-                  <img src={item?.img} alt="" />
-                </Card>
-              </Col>
-            })
-          }
-        </Row>
-        <div className="d-flex justify-content-center py-4">
-          <Link href='/start' className='btn btn-success start-btn'>Start Now</Link>
-        </div>
-      </Container>
+      {
+        isLoad ? <Loader /> : <Container>
+          <Row className='py-5'>
+            <Col xxl={6} xl={6} lg={12} md={12} sm={12} xs={12}>
+              <img src="/assets/logo.png" alt="" />
+            </Col>
+            <Col xxl={6} xl={6} lg={12} md={12} sm={12} xs={12}>
+              <img src="/assets/logo-01.png" alt="" />
+            </Col>
+          </Row>
 
-    </div>
+          <Row>
+            {
+              data?.map((item, keys) => {
+                return <Col xxl={3} xl={3} lg={3} md={3} sm={6} xs={12} key={keys} className='py-4'>
+                  <Card>
+                    <img src={item?.img} alt="" />
+                  </Card>
+                </Col>
+              })
+            }
+          </Row>
+          <div className="d-flex justify-content-center py-4">
+            <Link href='/start' className='btn btn-success start-btn'>Start Now</Link>
+          </div>
+        </Container >
+      }
+    </div >
   )
 }
 
-export default page
+export default Page
