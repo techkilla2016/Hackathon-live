@@ -61,7 +61,7 @@ const Login = () => {
                         <label htmlFor="password">
                             <BiLockAlt />
                         </label>
-                        <input type="text" placeholder='Password' onChange={handleChange} name='password' id='password' value={data?.password} />
+                        <input type="password" placeholder='Password' onChange={handleChange} name='password' id='password' value={data?.password} />
                     </div>
                     <div className="d-flex justify-content-center">
                         <button className='btn btn-primary submit-btn'>Submit</button>
