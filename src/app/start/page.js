@@ -16,7 +16,7 @@ const Home = () => {
     const [isLoad, setIsLoad] = useState(true)
     const [cookies] = useCookies(['auth'])
     const router = useRouter()
-    const domain = 'https://photo-ai-auth.vercel.app'
+    const domain = 'https://5a83-103-17-110-126.ngrok-free.app'
     useEffect(() => {
         const getVerify = async () => {
             try {
